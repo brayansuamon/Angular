@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Hello My First Project</h1>
 <h2>{{ welcome }}</h2>
 <ul>
@@ -16,3 +17,17 @@
 <input type="text" [value]="name">
 <button [disabled]="disabled">Click Me</button>
 <p>Person: {{ person.name }}</p>
+<hr />
+<button (click)="clickHandler()">Click me</button>
+<button (dblclick)="clickHandler()">Double me</button>
+<p>OnChange event</p>
+<input type="number" [value]="person.age" (change)="changeHandler($event)">
+<!-- Change don't  change until I press click, keydown is in real time-->
+<p>OnChange event</p>
+<input type="text" [value]="person.name" (change)="changeHandler($event)">
+<p>Keydown event</p>
+<input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
+<!-- To execute when I press shift + t -->
+<p>Keydown event shift</p>
+<input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()">
+</div>
