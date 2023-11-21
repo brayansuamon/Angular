@@ -5,3 +5,14 @@
     {{task}}
   </li>
 </ul>
+<hr />
+<!-- You can use scripts and operations inside this -->
+<h2>{{ 'Hola'.repeat(4) }}</h2>
+<p> la suma es 3 + 3 es {{3 + 3}} </p>
+<p>Hola soy {{ name }} y mi edad es {{ age }} </p>
+<hr />
+<img [src]="img" alt="">
+<!-- wrap the variablename with [] to call a value-->
+<input type="text" [value]="name">
+<button [disabled]="disabled">Click Me</button>
+<p>Person: {{ person.name }}</p>
