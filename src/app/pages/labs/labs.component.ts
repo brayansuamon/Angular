@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-labs',
@@ -10,13 +10,13 @@ import { Component } from '@angular/core';
 })
 export class LabsComponent {
   welcome = 'Welcome to my first applcation';
-  tasks = [
+  tasks = signal([
     'Install Angular CLI',
     'Create Project',
     'Create Component',
     'Create Service',
-  ];
-  name = 'Brayan';
+  ]);
+  name = signal('Brayan');
   age = '24';
   disabled = true;
   img = 'https://w3schools.com/howto/img_avatar.png';
@@ -33,7 +33,9 @@ export class LabsComponent {
   }
 
   changeHandler(event: Event) {
-    console.log(event);
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue);
   }
 
   keydownHandler(event: KeyboardEvent) {
