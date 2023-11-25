@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { Task } from '../../models/task.model';
+import { Task } from './../../models/task.model';
 
 @Component({
   selector: 'app-home',
@@ -48,5 +48,19 @@ export class HomeComponent {
     this.tasks.update((tasks) =>
       tasks.filter((task, position) => position !== index)
     );
+  }
+
+  updateHandler(index: number) {
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        }
+        return task;
+      });
+    });
   }
 }
